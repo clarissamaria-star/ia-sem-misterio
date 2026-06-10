@@ -162,11 +162,28 @@ export default function Quiz() {
     tracker.questionViewed(1, QUESTIONS.length);
   }, []);
 
+  const determineProfile = (totalScore) => {
+    let profileType;
+    if (totalScore < 8) {
+      profileType = 'iniciante';
+    } else if (totalScore < 16) {
+      profileType = 'curioso';
+    } else {
+      profileType = 'pronto';
+    }
+
+    const timeToComplete = Math.floor((Date.now() - quizStartTime) / 1000);
+    tracker.quizComplete(totalScore, profileType, timeToComplete);
+
+    return profileType;
+  };
+
   const handleAnswer = (answerScore) => {
     const currentQ = QUESTIONS[currentQuestion];
     const selectedAnswer = currentQ.answers.find(a => a.score === answerScore);
     const newScore = score + answerScore;
-    const isLastQuestion = currentQuestion >= QUESTIONS.length - 1;
+    const nextQuestion = currentQuestion + 1;
+    const isLastQuestion = nextQuestion >= QUESTIONS.length;
 
     // Track answer selection
     tracker.answerSelected(
@@ -177,36 +194,17 @@ export default function Quiz() {
     );
 
     if (isLastQuestion) {
-      // Last question - show results immediately
-      const timeToComplete = Math.floor((Date.now() - quizStartTime) / 1000);
+      // Last question answered - show results
+      const profileType = determineProfile(newScore);
       setScore(newScore);
-      setTimeout(() => {
-        determineProfile(newScore, timeToComplete);
-      }, 100);
+      setProfile(profileType);
+      setShowResult(true);
     } else {
-      // Not last question - go to next
-      setCurrentQuestion(currentQuestion + 1);
+      // Move to next question
       setScore(newScore);
-      // Track next question view
-      tracker.questionViewed(currentQuestion + 2, QUESTIONS.length);
+      setCurrentQuestion(nextQuestion);
+      tracker.questionViewed(nextQuestion + 1, QUESTIONS.length);
     }
-  };
-
-  const determineProfile = (totalScore, timeToComplete) => {
-    let profileType;
-    if (totalScore < 8) {
-      profileType = 'iniciante';
-    } else if (totalScore < 16) {
-      profileType = 'curioso';
-    } else {
-      profileType = 'pronto';
-    }
-
-    // Track quiz completion
-    tracker.quizComplete(totalScore, profileType, timeToComplete);
-
-    setProfile(profileType);
-    setShowResult(true);
   };
 
   const handleWhatsAppClick = (profileType, whatsappLink) => {
