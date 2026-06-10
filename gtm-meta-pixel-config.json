@@ -1,285 +1,276 @@
 {
-  "exportFormatVersion": "1.3",
-  "exportTime": "2026-06-10 00:00:00",
-  "containerVersion": {
-    "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0",
-    "accountId": "ACCOUNT_ID",
-    "containerId": "GTM-WVM7DW52",
-    "containerVersionId": "0",
-    "container": {
-      "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52",
-      "accountId": "ACCOUNT_ID",
-      "containerId": "GTM-WVM7DW52",
-      "name": "IA Sem Mistério - Meta Pixel",
-      "publicId": "GTM-WVM7DW52",
-      "timeZoneCountryId": "BR",
-      "timeZoneId": "America/Sao_Paulo"
-    },
-    "variable": [
-      {
-        "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/variables/1",
-        "accountId": "ACCOUNT_ID",
-        "containerId": "GTM-WVM7DW52",
-        "variableId": "1",
-        "name": "Const - Meta Pixel ID",
-        "type": "c",
-        "parameter": [
-          {
-            "type": "TEMPLATE",
-            "key": "value",
-            "value": "2686781752624834"
-          }
-        ]
-      }
-    ],
-    "trigger": [
-      {
-        "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/triggers/1",
-        "accountId": "ACCOUNT_ID",
-        "containerId": "GTM-WVM7DW52",
-        "triggerId": "1",
-        "name": "Trigger - Quiz Start",
-        "type": "CUSTOM_EVENT",
-        "customEventFilter": [
-          {
-            "type": "EQUALS",
-            "parameter": [
-              {
-                "type": "TEMPLATE",
-                "key": "arg0",
-                "value": "{{_event}}"
-              },
-              {
-                "type": "TEMPLATE",
-                "key": "arg1",
-                "value": "quiz_start"
-              }
+    "exportFormatVersion": 2,
+    "exportTime": "2026-06-10 13:41:20",
+    "containerVersion": {
+        "path": "accounts/6360157958/containers/255099005/versions/2",
+        "accountId": "6360157958",
+        "containerId": "255099005",
+        "containerVersionId": "2",
+        "name": "Meta Pixel Setup",
+        "container": {
+            "path": "accounts/6360157958/containers/255099005",
+            "accountId": "6360157958",
+            "containerId": "255099005",
+            "name": "ia-sem-misterio.vercel.app",
+            "publicId": "GTM-WVM7DW52",
+            "usageContext": [
+                "WEB"
             ]
-          }
+        },
+        "variable": [
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "variableId": "1",
+                "name": "Const - Meta Pixel ID",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "2686781752624834"
+                    }
+                ]
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "triggerId": "1",
+                "name": "Trigger - Quiz Start",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "quiz_start"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "triggerId": "2",
+                "name": "Trigger - Question Viewed",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "question_viewed"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "triggerId": "3",
+                "name": "Trigger - Answer Selected",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "answer_selected"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "triggerId": "4",
+                "name": "Trigger - Quiz Complete",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "quiz_complete"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "triggerId": "5",
+                "name": "Trigger - WhatsApp Click",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "whatsapp_click"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "tag": [
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "tagId": "1",
+                "name": "Meta Pixel - Quiz Start",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\nfbq('track', 'Lead');\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "firingTriggerId": [
+                    "1"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "tagId": "2",
+                "name": "Meta Pixel - Question Viewed",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\nfbq('track', 'ViewContent');\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "firingTriggerId": [
+                    "2"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "tagId": "3",
+                "name": "Meta Pixel - Answer Selected",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\nfbq('track', 'ViewContent');\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "firingTriggerId": [
+                    "3"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "tagId": "4",
+                "name": "Meta Pixel - Quiz Complete",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\nfbq('track', 'Lead', {value: 0, currency: 'BRL'});\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "firingTriggerId": [
+                    "4"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "tagId": "5",
+                "name": "Meta Pixel - WhatsApp Click",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\nfbq('track', 'ViewContent');\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "firingTriggerId": [
+                    "5"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            }
         ]
-      },
-      {
-        "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/triggers/2",
-        "accountId": "ACCOUNT_ID",
-        "containerId": "GTM-WVM7DW52",
-        "triggerId": "2",
-        "name": "Trigger - Question Viewed",
-        "type": "CUSTOM_EVENT",
-        "customEventFilter": [
-          {
-            "type": "EQUALS",
-            "parameter": [
-              {
-                "type": "TEMPLATE",
-                "key": "arg0",
-                "value": "{{_event}}"
-              },
-              {
-                "type": "TEMPLATE",
-                "key": "arg1",
-                "value": "question_viewed"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/triggers/3",
-        "accountId": "ACCOUNT_ID",
-        "containerId": "GTM-WVM7DW52",
-        "triggerId": "3",
-        "name": "Trigger - Answer Selected",
-        "type": "CUSTOM_EVENT",
-        "customEventFilter": [
-          {
-            "type": "EQUALS",
-            "parameter": [
-              {
-                "type": "TEMPLATE",
-                "key": "arg0",
-                "value": "{{_event}}"
-              },
-              {
-                "type": "TEMPLATE",
-                "key": "arg1",
-                "value": "answer_selected"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/triggers/4",
-        "accountId": "ACCOUNT_ID",
-        "containerId": "GTM-WVM7DW52",
-        "triggerId": "4",
-        "name": "Trigger - Quiz Complete",
-        "type": "CUSTOM_EVENT",
-        "customEventFilter": [
-          {
-            "type": "EQUALS",
-            "parameter": [
-              {
-                "type": "TEMPLATE",
-                "key": "arg0",
-                "value": "{{_event}}"
-              },
-              {
-                "type": "TEMPLATE",
-                "key": "arg1",
-                "value": "quiz_complete"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/triggers/5",
-        "accountId": "ACCOUNT_ID",
-        "containerId": "GTM-WVM7DW52",
-        "triggerId": "5",
-        "name": "Trigger - WhatsApp Click",
-        "type": "CUSTOM_EVENT",
-        "customEventFilter": [
-          {
-            "type": "EQUALS",
-            "parameter": [
-              {
-                "type": "TEMPLATE",
-                "key": "arg0",
-                "value": "{{_event}}"
-              },
-              {
-                "type": "TEMPLATE",
-                "key": "arg1",
-                "value": "whatsapp_click"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "tag": [
-      {
-        "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/tags/1",
-        "accountId": "ACCOUNT_ID",
-        "containerId": "GTM-WVM7DW52",
-        "tagId": "1",
-        "name": "Meta Pixel - Quiz Start",
-        "type": "html",
-        "parameter": [
-          {
-            "type": "TEMPLATE",
-            "key": "html",
-            "value": "<script>\nfbq('track', 'Lead');\n</script>"
-          },
-          {
-            "type": "BOOLEAN",
-            "key": "supportDocumentWrite",
-            "value": "false"
-          }
-        ],
-        "firingTriggerId": [
-          "1"
-        ],
-        "tagFiringOption": "ONCE_PER_EVENT"
-      },
-      {
-        "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/tags/2",
-        "accountId": "ACCOUNT_ID",
-        "containerId": "GTM-WVM7DW52",
-        "tagId": "2",
-        "name": "Meta Pixel - Question Viewed",
-        "type": "html",
-        "parameter": [
-          {
-            "type": "TEMPLATE",
-            "key": "html",
-            "value": "<script>\nfbq('track', 'ViewContent');\n</script>"
-          },
-          {
-            "type": "BOOLEAN",
-            "key": "supportDocumentWrite",
-            "value": "false"
-          }
-        ],
-        "firingTriggerId": [
-          "2"
-        ],
-        "tagFiringOption": "ONCE_PER_EVENT"
-      },
-      {
-        "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/tags/3",
-        "accountId": "ACCOUNT_ID",
-        "containerId": "GTM-WVM7DW52",
-        "tagId": "3",
-        "name": "Meta Pixel - Answer Selected",
-        "type": "html",
-        "parameter": [
-          {
-            "type": "TEMPLATE",
-            "key": "html",
-            "value": "<script>\nfbq('track', 'ViewContent');\n</script>"
-          },
-          {
-            "type": "BOOLEAN",
-            "key": "supportDocumentWrite",
-            "value": "false"
-          }
-        ],
-        "firingTriggerId": [
-          "3"
-        ],
-        "tagFiringOption": "ONCE_PER_EVENT"
-      },
-      {
-        "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/tags/4",
-        "accountId": "ACCOUNT_ID",
-        "containerId": "GTM-WVM7DW52",
-        "tagId": "4",
-        "name": "Meta Pixel - Quiz Complete",
-        "type": "html",
-        "parameter": [
-          {
-            "type": "TEMPLATE",
-            "key": "html",
-            "value": "<script>\nfbq('track', 'Lead', {value: 0, currency: 'BRL'});\n</script>"
-          },
-          {
-            "type": "BOOLEAN",
-            "key": "supportDocumentWrite",
-            "value": "false"
-          }
-        ],
-        "firingTriggerId": [
-          "4"
-        ],
-        "tagFiringOption": "ONCE_PER_EVENT"
-      },
-      {
-        "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/tags/5",
-        "accountId": "ACCOUNT_ID",
-        "containerId": "GTM-WVM7DW52",
-        "tagId": "5",
-        "name": "Meta Pixel - WhatsApp Click",
-        "type": "html",
-        "parameter": [
-          {
-            "type": "TEMPLATE",
-            "key": "html",
-            "value": "<script>\nfbq('track', 'ViewContent');\n</script>"
-          },
-          {
-            "type": "BOOLEAN",
-            "key": "supportDocumentWrite",
-            "value": "false"
-          }
-        ],
-        "firingTriggerId": [
-          "5"
-        ],
-        "tagFiringOption": "ONCE_PER_EVENT"
-      }
-    ]
-  }
+    }
 }
