@@ -94,8 +94,8 @@ html, body {
 }
 
 .logo {
-  width: 240px;
-  height: 120px;
+  width: 320px;
+  height: 160px;
   margin: 0 auto var(--spacing-md);
   object-fit: contain;
   animation: float 3s ease-in-out infinite;
@@ -269,8 +269,8 @@ html, body {
 }
 
 .resultHeader .logo {
-  width: 240px;
-  height: 120px;
+  width: 320px;
+  height: 160px;
   margin: 0 auto var(--spacing-md);
   object-fit: contain;
 }
@@ -422,8 +422,8 @@ html, body {
   }
 
   .logo {
-    width: 180px;
-    height: 90px;
+    width: 240px;
+    height: 120px;
   }
 
   .header h1 {
@@ -474,8 +474,8 @@ html, body {
   }
 
   .logo {
-    width: 150px;
-    height: 75px;
+    width: 200px;
+    height: 100px;
     margin-bottom: var(--spacing-sm);
   }
 
