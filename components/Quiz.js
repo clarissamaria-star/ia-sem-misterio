@@ -233,7 +233,7 @@ export default function Quiz() {
       <div className={styles.resultContainer}>
         <div className={styles.resultCard}>
           <div className={styles.resultHeader}>
-            <img src="/logo.svg" alt="IA Sem Mistério" className={styles.logo} />
+            <img src="/logo.png" alt="IA Sem Mistério" className={styles.logo} />
             <h1>{profileData.title}</h1>
             <p className={styles.resultSubtitle}>{profileData.subtitle}</p>
           </div>
@@ -268,7 +268,7 @@ export default function Quiz() {
   return (
     <div className={styles.quizContainer}>
       <div className={styles.header}>
-        <img src="/logo.svg" alt="IA Sem Mistério" className={styles.logo} />
+        <img src="/logo.png" alt="IA Sem Mistério" className={styles.logo} />
         <h1>IA Sem Mistério</h1>
         <p>Para Toda Idade</p>
       </div>
