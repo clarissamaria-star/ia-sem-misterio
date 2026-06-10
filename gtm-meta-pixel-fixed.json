@@ -1,0 +1,152 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2026-06-10 14:00:00",
+    "containerVersion": {
+        "path": "accounts/6360157958/containers/255099005/versions/3",
+        "accountId": "6360157958",
+        "containerId": "255099005",
+        "containerVersionId": "3",
+        "name": "Meta Pixel Setup - Fixed",
+        "container": {
+            "path": "accounts/6360157958/containers/255099005",
+            "accountId": "6360157958",
+            "containerId": "255099005",
+            "name": "ia-sem-misterio.vercel.app",
+            "publicId": "GTM-WVM7DW52",
+            "usageContext": [
+                "WEB"
+            ]
+        },
+        "tag": [
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "tagId": "1",
+                "name": "Meta Pixel - Init",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!-- Meta Pixel Code -->\n<script>\n!function(f,b,e,v,n,t,s)\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)}(window, document,'script',\n'https://connect.facebook.net/en_US/fbevents.js');\nfbq('init', '2686781752624834');\nfbq('track', 'PageView');\n</script>\n<noscript><img height=\"1\" width=\"1\" style=\"display:none\"\nsrc=\"https://www.facebook.com/tr?id=2686781752624834&ev=PageView&noscript=1\"/></noscript>\n<!-- End Meta Pixel Code -->"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "firingTriggerId": [
+                    "6"
+                ],
+                "tagFiringOption": "ONCE_PER_LOAD"
+            },
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "tagId": "2",
+                "name": "Meta Pixel - Quiz Start",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>fbq('track', 'Lead');</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "firingTriggerId": [
+                    "1"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "tagId": "3",
+                "name": "Meta Pixel - Quiz Complete",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>fbq('track', 'Lead', {value: 0, currency: 'BRL'});</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "firingTriggerId": [
+                    "4"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "triggerId": "6",
+                "name": "Trigger - All Pages",
+                "type": "PAGE_VIEW",
+                "fingerprint": "0"
+            },
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "triggerId": "1",
+                "name": "Trigger - Quiz Start",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "quiz_start"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "0"
+            },
+            {
+                "accountId": "6360157958",
+                "containerId": "255099005",
+                "triggerId": "4",
+                "name": "Trigger - Quiz Complete",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "quiz_complete"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "0"
+            }
+        ]
+    }
+}
