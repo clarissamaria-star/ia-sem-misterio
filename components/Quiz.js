@@ -179,31 +179,28 @@ export default function Quiz() {
   };
 
   const handleAnswer = (answerScore) => {
-    const currentQ = QUESTIONS[currentQuestion];
-    const selectedAnswer = currentQ.answers.find(a => a.score === answerScore);
     const newScore = score + answerScore;
     const nextQuestion = currentQuestion + 1;
     const isLastQuestion = nextQuestion >= QUESTIONS.length;
 
-    // Track answer selection
-    tracker.answerSelected(
-      currentQuestion + 1,
-      selectedAnswer?.text || 'Unknown',
-      answerScore,
-      newScore
-    );
+    try {
+      const currentQ = QUESTIONS[currentQuestion];
+      const selectedAnswer = currentQ.answers.find(a => a.score === answerScore);
+      tracker.answerSelected(currentQuestion + 1, selectedAnswer?.text || 'Unknown', answerScore, newScore);
+    } catch (e) {}
 
     if (isLastQuestion) {
-      // Last question answered - show results
-      const profileType = determineProfile(newScore);
+      let profileType = 'iniciante';
+      try {
+        profileType = determineProfile(newScore);
+      } catch (e) {}
       setScore(newScore);
       setProfile(profileType);
       setShowResult(true);
     } else {
-      // Move to next question
       setScore(newScore);
       setCurrentQuestion(nextQuestion);
-      tracker.questionViewed(nextQuestion + 1, QUESTIONS.length);
+      try { tracker.questionViewed(nextQuestion + 1, QUESTIONS.length); } catch (e) {}
     }
   };
 
