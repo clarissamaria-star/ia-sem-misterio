@@ -41,8 +41,8 @@
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
+  width: 140px;
+  height: 140px;
   margin-bottom: 15px;
   animation: float 3s ease-in-out infinite;
 }
