@@ -94,7 +94,7 @@
                 "containerId": "255099005",
                 "triggerId": "6",
                 "name": "Trigger - All Pages",
-                "type": "PAGE_VIEW",
+                "type": "pageview",
                 "fingerprint": "0"
             },
             {
