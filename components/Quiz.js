@@ -169,25 +169,30 @@ export default function Quiz() {
   const handleAnswer = (answerScore) => {
     const currentQ = QUESTIONS[currentQuestion];
     const selectedAnswer = currentQ.answers.find(a => a.score === answerScore);
+    const newScore = score + answerScore;
+    const isLastQuestion = currentQuestion >= QUESTIONS.length - 1;
 
     // Track answer selection
     tracker.answerSelected(
       currentQuestion + 1,
       selectedAnswer?.text || 'Unknown',
       answerScore,
-      score + answerScore
+      newScore
     );
 
-    const newScore = score + answerScore;
-    setScore(newScore);
-
-    if (currentQuestion < QUESTIONS.length - 1) {
+    if (isLastQuestion) {
+      // Last question - show results immediately
+      const timeToComplete = Math.floor((Date.now() - quizStartTime) / 1000);
+      setScore(newScore);
+      setTimeout(() => {
+        determineProfile(newScore, timeToComplete);
+      }, 100);
+    } else {
+      // Not last question - go to next
       setCurrentQuestion(currentQuestion + 1);
+      setScore(newScore);
       // Track next question view
       tracker.questionViewed(currentQuestion + 2, QUESTIONS.length);
-    } else {
-      const timeToComplete = Math.floor((Date.now() - quizStartTime) / 1000);
-      determineProfile(newScore, timeToComplete);
     }
   };
 
