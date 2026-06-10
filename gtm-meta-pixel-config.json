@@ -1,6 +1,6 @@
 {
-  "exportFormatVersion": 2,
-  "exportTime": "2026-06-10 10:00:00",
+  "exportFormatVersion": "1.3",
+  "exportTime": "2026-06-10 00:00:00",
   "containerVersion": {
     "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0",
     "accountId": "ACCOUNT_ID",
@@ -29,8 +29,7 @@
             "key": "value",
             "value": "2686781752624834"
           }
-        ],
-        "fingerprint": "0"
+        ]
       }
     ],
     "trigger": [
@@ -40,20 +39,24 @@
         "containerId": "GTM-WVM7DW52",
         "triggerId": "1",
         "name": "Trigger - Quiz Start",
-        "type": "customEvent",
+        "type": "CUSTOM_EVENT",
         "customEventFilter": [
           {
             "type": "EQUALS",
             "parameter": [
               {
                 "type": "TEMPLATE",
-                "key": "eventName",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
                 "value": "quiz_start"
               }
             ]
           }
-        ],
-        "fingerprint": "0"
+        ]
       },
       {
         "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/triggers/2",
@@ -61,20 +64,24 @@
         "containerId": "GTM-WVM7DW52",
         "triggerId": "2",
         "name": "Trigger - Question Viewed",
-        "type": "customEvent",
+        "type": "CUSTOM_EVENT",
         "customEventFilter": [
           {
             "type": "EQUALS",
             "parameter": [
               {
                 "type": "TEMPLATE",
-                "key": "eventName",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
                 "value": "question_viewed"
               }
             ]
           }
-        ],
-        "fingerprint": "0"
+        ]
       },
       {
         "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/triggers/3",
@@ -82,20 +89,24 @@
         "containerId": "GTM-WVM7DW52",
         "triggerId": "3",
         "name": "Trigger - Answer Selected",
-        "type": "customEvent",
+        "type": "CUSTOM_EVENT",
         "customEventFilter": [
           {
             "type": "EQUALS",
             "parameter": [
               {
                 "type": "TEMPLATE",
-                "key": "eventName",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
                 "value": "answer_selected"
               }
             ]
           }
-        ],
-        "fingerprint": "0"
+        ]
       },
       {
         "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/triggers/4",
@@ -103,20 +114,24 @@
         "containerId": "GTM-WVM7DW52",
         "triggerId": "4",
         "name": "Trigger - Quiz Complete",
-        "type": "customEvent",
+        "type": "CUSTOM_EVENT",
         "customEventFilter": [
           {
             "type": "EQUALS",
             "parameter": [
               {
                 "type": "TEMPLATE",
-                "key": "eventName",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
                 "value": "quiz_complete"
               }
             ]
           }
-        ],
-        "fingerprint": "0"
+        ]
       },
       {
         "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/triggers/5",
@@ -124,20 +139,24 @@
         "containerId": "GTM-WVM7DW52",
         "triggerId": "5",
         "name": "Trigger - WhatsApp Click",
-        "type": "customEvent",
+        "type": "CUSTOM_EVENT",
         "customEventFilter": [
           {
             "type": "EQUALS",
             "parameter": [
               {
                 "type": "TEMPLATE",
-                "key": "eventName",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
                 "value": "whatsapp_click"
               }
             ]
           }
-        ],
-        "fingerprint": "0"
+        ]
       }
     ],
     "tag": [
@@ -163,7 +182,7 @@
         "firingTriggerId": [
           "1"
         ],
-        "fingerprint": "0"
+        "tagFiringOption": "ONCE_PER_EVENT"
       },
       {
         "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/tags/2",
@@ -187,7 +206,7 @@
         "firingTriggerId": [
           "2"
         ],
-        "fingerprint": "0"
+        "tagFiringOption": "ONCE_PER_EVENT"
       },
       {
         "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/tags/3",
@@ -211,7 +230,7 @@
         "firingTriggerId": [
           "3"
         ],
-        "fingerprint": "0"
+        "tagFiringOption": "ONCE_PER_EVENT"
       },
       {
         "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/tags/4",
@@ -235,7 +254,7 @@
         "firingTriggerId": [
           "4"
         ],
-        "fingerprint": "0"
+        "tagFiringOption": "ONCE_PER_EVENT"
       },
       {
         "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/tags/5",
@@ -259,7 +278,7 @@
         "firingTriggerId": [
           "5"
         ],
-        "fingerprint": "0"
+        "tagFiringOption": "ONCE_PER_EVENT"
       }
     ]
   }
