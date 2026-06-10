@@ -163,8 +163,7 @@
         "firingTriggerId": [
           "1"
         ],
-        "fingerprint": "0",
-        "tagFiringOption": "oncePerEvent"
+        "fingerprint": "0"
       },
       {
         "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/tags/2",
@@ -188,8 +187,7 @@
         "firingTriggerId": [
           "2"
         ],
-        "fingerprint": "0",
-        "tagFiringOption": "oncePerEvent"
+        "fingerprint": "0"
       },
       {
         "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/tags/3",
@@ -213,8 +211,7 @@
         "firingTriggerId": [
           "3"
         ],
-        "fingerprint": "0",
-        "tagFiringOption": "oncePerEvent"
+        "fingerprint": "0"
       },
       {
         "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/tags/4",
@@ -238,8 +235,7 @@
         "firingTriggerId": [
           "4"
         ],
-        "fingerprint": "0",
-        "tagFiringOption": "oncePerEvent"
+        "fingerprint": "0"
       },
       {
         "path": "accounts/ACCOUNT_ID/containers/GTM-WVM7DW52/versions/0/tags/5",
@@ -263,8 +259,7 @@
         "firingTriggerId": [
           "5"
         ],
-        "fingerprint": "0",
-        "tagFiringOption": "oncePerEvent"
+        "fingerprint": "0"
       }
     ]
   }
