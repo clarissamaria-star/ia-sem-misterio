@@ -39,7 +39,7 @@
                 "firingTriggerId": [
                     "6"
                 ],
-                "tagFiringOption": "oncePerLoad"
+                "tagFiringOption": "ONCE_PER_LOAD"
             },
             {
                 "accountId": "6360157958",
@@ -62,7 +62,7 @@
                 "firingTriggerId": [
                     "1"
                 ],
-                "tagFiringOption": "oncePerEvent"
+                "tagFiringOption": "ONCE_PER_EVENT"
             },
             {
                 "accountId": "6360157958",
@@ -85,7 +85,7 @@
                 "firingTriggerId": [
                     "4"
                 ],
-                "tagFiringOption": "oncePerEvent"
+                "tagFiringOption": "ONCE_PER_EVENT"
             }
         ],
         "trigger": [
