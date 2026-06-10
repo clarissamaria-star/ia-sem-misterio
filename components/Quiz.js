@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../styles/Quiz.module.css';
+import { tracker } from '../lib/tracker';
 
 const WHATSAPP_GROUPS = {
   iniciante: 'https://chat.whatsapp.com/KK826r1zmwJ5jvBYVXKyZV',
@@ -157,27 +158,66 @@ export default function Quiz() {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [profile, setProfile] = useState(null);
+  const [quizStartTime] = useState(Date.now());
+
+  useEffect(() => {
+    const deviceType = typeof window !== 'undefined' && window.innerWidth < 768 ? 'mobile' : 'desktop';
+    tracker.quizStart(deviceType);
+    tracker.questionViewed(1, QUESTIONS.length);
+  }, []);
 
   const handleAnswer = (answerScore) => {
+    const currentQ = QUESTIONS[currentQuestion];
+    const selectedAnswer = currentQ.answers.find(a => a.score === answerScore);
+
+    // Track answer selection
+    tracker.answerSelected(
+      currentQuestion + 1,
+      selectedAnswer?.text || 'Unknown',
+      answerScore,
+      score + answerScore
+    );
+
     const newScore = score + answerScore;
     setScore(newScore);
 
     if (currentQuestion < QUESTIONS.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
+      // Track next question view
+      tracker.questionViewed(currentQuestion + 2, QUESTIONS.length);
     } else {
-      determineProfile(newScore);
+      const timeToComplete = Math.floor((Date.now() - quizStartTime) / 1000);
+      determineProfile(newScore, timeToComplete);
     }
   };
 
-  const determineProfile = (totalScore) => {
+  const determineProfile = (totalScore, timeToComplete) => {
+    let profileType;
     if (totalScore < 8) {
-      setProfile('iniciante');
+      profileType = 'iniciante';
     } else if (totalScore < 16) {
-      setProfile('curioso');
+      profileType = 'curioso';
     } else {
-      setProfile('pronto');
+      profileType = 'pronto';
     }
+
+    // Track quiz completion
+    tracker.quizComplete(totalScore, profileType, timeToComplete);
+
+    setProfile(profileType);
     setShowResult(true);
+  };
+
+  const handleWhatsAppClick = (profileType, whatsappLink) => {
+    // Track WhatsApp click
+    tracker.whatsappClick(profileType);
+
+    // Open WhatsApp in new tab
+    setTimeout(() => {
+      if (typeof window !== 'undefined') {
+        window.open(whatsappLink, '_blank');
+      }
+    }, 100);
   };
 
   const resetQuiz = () => {
@@ -207,12 +247,15 @@ export default function Quiz() {
             ))}
           </div>
 
-          <a href={profileData.whatsappLink} target="_blank" rel="noopener noreferrer" className={styles.whatsappButton}>
+          <button
+            onClick={() => handleWhatsAppClick(profile, profileData.whatsappLink)}
+            className={styles.whatsappButton}
+          >
             <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.924 1.273c-1.546.807-2.967 1.968-4.059 3.331 1.195-1.348 2.823-2.34 4.656-2.62 1.577-.229 3.168.196 4.331 1.003" />
             </svg>
             {profileData.cta}
-          </a>
+          </button>
 
           <button onClick={resetQuiz} className={styles.resetButton}>
             Refazer Quiz
