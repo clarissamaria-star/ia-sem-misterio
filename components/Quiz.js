@@ -2,11 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from '../styles/Quiz.module.css';
 import { tracker } from '../lib/tracker';
 
-const WHATSAPP_GROUPS = {
-  iniciante: 'https://chat.whatsapp.com/KK826r1zmwJ5jvBYVXKyZV',
-  curioso: 'https://chat.whatsapp.com/HhgjP5mgWAm4rUpyKWgqXu',
-  pronto: 'https://chat.whatsapp.com/JbE4qjZG57y2s1Ut3sTF9K'
-};
+const WHATSAPP_GROUP = 'https://chat.whatsapp.com/KK826r1zmwJ5jvBYVXKyZV';
 
 const QUESTIONS = [
   {
@@ -122,8 +118,8 @@ const PROFILES = {
       '✅ Comunidade acolhedora e paciente',
       '✅ Conteúdo simples e prático'
     ],
-    cta: 'Entrar no Grupo #5 - Iniciantes',
-    whatsappLink: WHATSAPP_GROUPS.iniciante
+    cta: 'Entrar no Grupo IA Sem Mistério',
+    whatsappLink: WHATSAPP_GROUP
   },
   curioso: {
     title: '🎓 Você Está Pronto!',
@@ -135,8 +131,8 @@ const PROFILES = {
       '✅ Ferramentas e técnicas úteis',
       '✅ Comunidade engajada e colaborativa'
     ],
-    cta: 'Entrar no Grupo #6 - Curiosos',
-    whatsappLink: WHATSAPP_GROUPS.curioso
+    cta: 'Entrar no Grupo IA Sem Mistério',
+    whatsappLink: WHATSAPP_GROUP
   },
   pronto: {
     title: '💡 Você é um Game Changer!',
@@ -148,8 +144,8 @@ const PROFILES = {
       '✅ Oportunidades de aplicação prática',
       '✅ Networking com pessoas preparadas'
     ],
-    cta: 'Entrar no Grupo #7 - Game Changers',
-    whatsappLink: WHATSAPP_GROUPS.pronto
+    cta: 'Entrar no Grupo IA Sem Mistério',
+    whatsappLink: WHATSAPP_GROUP
   }
 };
 
