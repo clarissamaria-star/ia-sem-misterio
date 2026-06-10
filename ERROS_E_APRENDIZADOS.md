@@ -16,8 +16,12 @@ Error deserializing enum type [Type]. Unrecognized value [template].
 
 Ao tentar importar `gtm-config.json` no GTM, recebemos erro de formato inválido.
 
-### A Causa
-O JSON gerado tinha estrutura incorreta para importação no GTM. A estrutura que coloquei não era válida para o formato de export/import do GTM.
+### A Causa Raiz
+Eu **não validei** o JSON contra a documentação oficial do GTM. Assumiu-se uma estrutura sem testar:
+1. O campo `"type": "template"` NÃO é um valor válido no enum do GTM
+2. A estrutura do `parameter[]` não corresponde ao schema de importação real
+3. Não exportei um exemplo real do GTM para usar como referência
+4. Gerou-se um arquivo complexo (~100+ linhas) sem testes
 
 ### A Solução
 Ao invés de gerar um JSON manual complexo, usar:
@@ -51,6 +55,40 @@ Vou fornecer um **guia manual passo-a-passo** validado para criar no GTM, que é
 - ✅ Admitir erro rapidamente
 - ✅ Aprender e não repetir
 - ✅ Documentar para referência futura
+- ✅ **Salvar na memória para NÃO errar de novo** (conforme pedido por Clarissa)
+
+---
+
+## 🔄 Rotina de Correção Imediata
+
+**Demanda do Usuário:** "vc precisa criar uma rotina de quando errar ja corrigir o erro" - Clarissa em 2026-06-10
+
+**Objetivo:** Estabelecer um protocolo para que erros sejam identificados, documentados e evitados no futuro.
+
+### Passo 1: IDENTIFICAR o Erro
+- Qual é o erro EXATO? (mensagem de erro, código, linha)
+- Reproduzir se possível
+- Tirar screenshot ou log se relevante
+
+### Passo 2: ENTENDER a Raiz Causa
+- Por quê isso deu erro?
+- Qual foi minha suposição incorreta?
+- Onde deveria ter validado?
+- Qual era minha falta de conhecimento?
+
+### Passo 3: CORRIGIR Imediatamente
+- ❌ NÃO esperar para depois
+- ✅ CORRIGIR agora mesmo
+- ✅ Testar a correção
+
+### Passo 4: REGISTRAR na Memória
+- Salvar em arquivo `~/memory/erro-*.md` com análise completa
+- Para referência em futuras conversas
+- Evita repetir o mesmo erro
+
+### Passo 5: DOCUMENTAR no Projeto
+- Adicionar neste arquivo (ERROS_E_APRENDIZADOS.md)
+- Para que o usuário saiba que aprendemos
 
 ---
 
